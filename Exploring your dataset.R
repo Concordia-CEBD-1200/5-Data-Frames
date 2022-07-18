@@ -30,14 +30,27 @@ stats$Internet.users[2]
 stats[, "Internet.users"] # same as stats$Internet.users
 levels(as.factor(stats$Income.Group)) # or use stringsAsFactors = T
 
-
-
-
-
-
-
-
-
-
-
-
+# ------Basic operations with a Data Frame------
+stats[1:10, ] # subsetting
+stats[3:9, ]
+stats[c(4, 100), ]
+# Remember how the [] work?
+stats[1,]
+is.data.frame(stats[1,]) # unlike matrix
+is.data.frame(stats[,1]) # returns a vector
+is.data.frame(stats[,1, drop=F])
+# Mathematical
+head(stats)
+stats$Birth.rate * stats$Internet.users
+stats$Birth.rate + stats$Internet.users
+# Add column
+head(stats)
+stats$MyCalc <- stats$Birth.rate * stats$Internet.users
+# Recycling
+stats$xyz <- 1:5
+head(stats, n=15)
+stats$xyz <- 1:4
+# Remove a column
+head(stats)
+stats$MyCalc <- NULL
+stats$xyz <- NULL
